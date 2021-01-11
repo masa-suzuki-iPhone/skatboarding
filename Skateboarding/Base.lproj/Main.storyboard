@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jMB-SW-18n">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +12,7 @@
             <objects>
                 <viewController storyboardIdentifier="Home" id="rnF-zk-g8J" customClass="HomeViewController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AAR-hu-Nd4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Msi-pt-i2p"/>
@@ -28,7 +28,7 @@
             <objects>
                 <viewController storyboardIdentifier="ImageSelect" id="g90-GU-toH" customClass="ImageSelectViewController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hzt-cw-9m9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="2ov-TI-bL0"/>
@@ -44,7 +44,7 @@
             <objects>
                 <viewController storyboardIdentifier="Post" id="YD7-bn-Jyz" customClass="PostViewController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AGs-ct-Pas">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="V4J-OO-2CE"/>
@@ -59,7 +59,7 @@
             <objects>
                 <viewController storyboardIdentifier="Setting" id="Og4-Qi-pev" customClass="SettingViewController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G5v-hp-snY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ZUb-He-XHx"/>
@@ -73,17 +73,112 @@
         <!--Login View Controller-->
         <scene sceneID="gLc-Hh-Q2L">
             <objects>
-                <viewController storyboardIdentifier="Login" id="fzO-to-jex" customClass="LoginViewController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" modalPresentationStyle="fullScreen" id="fzO-to-jex" customClass="LoginViewController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NHn-ln-IqP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログイン" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKh-Sg-J9Y">
+                                <rect key="frame" x="0.0" y="144" width="375" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZJ-dv-oeM">
+                                <rect key="frame" x="30" y="237" width="145" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレスを入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cTo-oP-fZZ">
+                                <rect key="frame" x="30" y="271" width="315" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3o-CV-3uo">
+                                <rect key="frame" x="30" y="330" width="145" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワードを入力(6文字以上)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HKi-Ma-vgj">
+                                <rect key="frame" x="30" y="364" width="315" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV2-LW-5Tr">
+                                <rect key="frame" x="30" y="423" width="145" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="アカウント作成時は表示名を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e2i-qn-TqF">
+                                <rect key="frame" x="30" y="457" width="315" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtn-XV-ewv">
+                                <rect key="frame" x="30" y="550" width="315" height="36"/>
+                                <color key="backgroundColor" red="0.21643818839215628" green="0.61044267616579428" blue="0.90866273641586304" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="ログイン"/>
+                                <connections>
+                                    <action selector="handleLoginButton:" destination="fzO-to-jex" eventType="touchUpInside" id="ODi-EO-VdU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NT3-sh-Jkn">
+                                <rect key="frame" x="30" y="606" width="315" height="36"/>
+                                <color key="backgroundColor" red="0.21643818840000001" green="0.61044267620000003" blue="0.90866273639999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="アカウントを作成"/>
+                                <connections>
+                                    <action selector="handleCreateAccountButton:" destination="fzO-to-jex" eventType="touchUpInside" id="t0R-N5-3im"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tvV-VA-ktf" firstAttribute="trailing" secondItem="e2i-qn-TqF" secondAttribute="trailing" constant="30" id="23K-cC-ZDX"/>
+                            <constraint firstItem="tvV-VA-ktf" firstAttribute="trailing" secondItem="aV2-LW-5Tr" secondAttribute="trailing" constant="200" id="4gu-Bc-01W"/>
+                            <constraint firstItem="aV2-LW-5Tr" firstAttribute="leading" secondItem="tvV-VA-ktf" secondAttribute="leading" constant="30" id="9IW-Vt-1dh"/>
+                            <constraint firstItem="HKi-Ma-vgj" firstAttribute="top" secondItem="N3o-CV-3uo" secondAttribute="bottom" constant="10" id="CNP-r7-CwZ"/>
+                            <constraint firstItem="cTo-oP-fZZ" firstAttribute="top" secondItem="UZJ-dv-oeM" secondAttribute="bottom" constant="10" id="EaO-qe-mfp"/>
+                            <constraint firstItem="NT3-sh-Jkn" firstAttribute="leading" secondItem="tvV-VA-ktf" secondAttribute="leading" constant="30" id="Ei4-cb-vFr"/>
+                            <constraint firstItem="UZJ-dv-oeM" firstAttribute="leading" secondItem="tvV-VA-ktf" secondAttribute="leading" constant="30" id="FBn-RW-NcQ"/>
+                            <constraint firstItem="NT3-sh-Jkn" firstAttribute="top" secondItem="Dtn-XV-ewv" secondAttribute="bottom" constant="20" id="GUS-Wj-SNF"/>
+                            <constraint firstItem="tvV-VA-ktf" firstAttribute="trailing" secondItem="HKi-Ma-vgj" secondAttribute="trailing" constant="30" id="Hn7-eh-XGt"/>
+                            <constraint firstItem="aV2-LW-5Tr" firstAttribute="top" secondItem="HKi-Ma-vgj" secondAttribute="bottom" constant="25" id="IhM-CQ-2yB"/>
+                            <constraint firstItem="TKh-Sg-J9Y" firstAttribute="leading" secondItem="tvV-VA-ktf" secondAttribute="leading" id="OrS-lW-jyG"/>
+                            <constraint firstItem="cTo-oP-fZZ" firstAttribute="leading" secondItem="tvV-VA-ktf" secondAttribute="leading" constant="30" id="QmO-Ah-gyn"/>
+                            <constraint firstItem="tvV-VA-ktf" firstAttribute="trailing" secondItem="NT3-sh-Jkn" secondAttribute="trailing" constant="30" id="ROO-hY-BI7"/>
+                            <constraint firstItem="Dtn-XV-ewv" firstAttribute="leading" secondItem="tvV-VA-ktf" secondAttribute="leading" constant="30" id="SbC-Fq-2oT"/>
+                            <constraint firstItem="e2i-qn-TqF" firstAttribute="top" secondItem="aV2-LW-5Tr" secondAttribute="bottom" constant="10" id="YC0-V8-vld"/>
+                            <constraint firstItem="HKi-Ma-vgj" firstAttribute="leading" secondItem="tvV-VA-ktf" secondAttribute="leading" constant="30" id="a3w-Vh-mca"/>
+                            <constraint firstItem="tvV-VA-ktf" firstAttribute="trailing" secondItem="UZJ-dv-oeM" secondAttribute="trailing" constant="200" id="aIN-ur-aKy"/>
+                            <constraint firstItem="Dtn-XV-ewv" firstAttribute="top" secondItem="e2i-qn-TqF" secondAttribute="bottom" constant="59" id="ali-j1-o0Y"/>
+                            <constraint firstItem="N3o-CV-3uo" firstAttribute="leading" secondItem="tvV-VA-ktf" secondAttribute="leading" constant="30" id="cvU-UB-79v"/>
+                            <constraint firstItem="UZJ-dv-oeM" firstAttribute="top" secondItem="TKh-Sg-J9Y" secondAttribute="bottom" constant="50" id="hyB-6O-GLb"/>
+                            <constraint firstItem="tvV-VA-ktf" firstAttribute="trailing" secondItem="cTo-oP-fZZ" secondAttribute="trailing" constant="30" id="pbW-8E-L3R"/>
+                            <constraint firstItem="N3o-CV-3uo" firstAttribute="top" secondItem="cTo-oP-fZZ" secondAttribute="bottom" constant="25" id="qYA-gJ-sZV"/>
+                            <constraint firstItem="TKh-Sg-J9Y" firstAttribute="trailing" secondItem="tvV-VA-ktf" secondAttribute="trailing" id="rNi-97-A3Z"/>
+                            <constraint firstItem="tvV-VA-ktf" firstAttribute="trailing" secondItem="N3o-CV-3uo" secondAttribute="trailing" constant="200" id="skH-aF-ae3"/>
+                            <constraint firstItem="tvV-VA-ktf" firstAttribute="trailing" secondItem="Dtn-XV-ewv" secondAttribute="trailing" constant="30" id="v00-8M-oYr"/>
+                            <constraint firstItem="e2i-qn-TqF" firstAttribute="leading" secondItem="tvV-VA-ktf" secondAttribute="leading" constant="30" id="veY-Ny-UK1"/>
+                            <constraint firstItem="TKh-Sg-J9Y" firstAttribute="top" secondItem="tvV-VA-ktf" secondAttribute="top" constant="100" id="yav-Ca-VsS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tvV-VA-ktf"/>
                     </view>
+                    <connections>
+                        <outlet property="displayNameTextField" destination="e2i-qn-TqF" id="Hk6-OL-0KU"/>
+                        <outlet property="mailAddressTextField" destination="cTo-oP-fZZ" id="bjS-rl-799"/>
+                        <outlet property="passwordTextField" destination="HKi-Ma-vgj" id="qs9-MS-XXn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKz-rl-xL5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="1659"/>
+            <point key="canvasLocation" x="1046.376811594203" y="1658.0357142857142"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8gf-M2-Nqb">
@@ -91,6 +186,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="jMB-SW-18n" customClass="TabBarController" customModule="Skateboarding" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AmJ-4v-p5b">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
