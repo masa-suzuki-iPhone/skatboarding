@@ -8,12 +8,15 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var mailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var displayNameTextField: UITextField!
+    @IBOutlet weak var handleLoginButton2: UIButton!
+    @IBOutlet weak var handleCreateAccountButton2: UIButton!
     
     // ログインボタンをタップしたときに呼ばれるメソッド
     @IBAction func handleLoginButton(_ sender: Any) {
@@ -24,12 +27,18 @@ class LoginViewController: UIViewController {
                 return
             }
             
+            // HUDで処理中を表示
+            SVProgressHUD.show()
+            
             Auth.auth().signIn(withEmail: address, password: password) { authResult, error in
                 if let error = error {
                     print("DEBUG_PRINT: " + error.localizedDescription)
                     return
                 }
                 print("DEBUG_PRINT: ログインに成功しました。")
+                
+                // HUDを消す
+                SVProgressHUD.dismiss()
                 
                 // 画面を閉じてタブ画面に戻る
                 self.dismiss(animated: true, completion: nil)
@@ -46,6 +55,9 @@ class LoginViewController: UIViewController {
                 print("DEBUG_PRINT: 何かが空文字です。")
                 return
             }
+            
+            // HUDで処理中を表示
+            SVProgressHUD.show()
             
             // アドレスとパスワードでユーザー作成。ユーザー作成に成功すると、自動的にログインする
             Auth.auth().createUser(withEmail: address, password: password) { authResult, error in
@@ -69,6 +81,9 @@ class LoginViewController: UIViewController {
                         }
                         print("DEBUG_PRINT: [displayName = \(user.displayName!)]の設定に成功しました。")
                         
+                        // HUDを消す
+                        SVProgressHUD.dismiss()
+                        
                         // 画面を閉じてタブ画面に戻る
                         self.dismiss(animated: true, completion: nil)
                     }
@@ -80,6 +95,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        handleLoginButton2.layer.cornerRadius = 10.0
+        handleCreateAccountButton2.layer.cornerRadius = 10.0
+    
         
         // Do any additional setup after loading the view.
     }
