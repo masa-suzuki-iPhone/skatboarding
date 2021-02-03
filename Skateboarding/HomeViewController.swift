@@ -79,16 +79,31 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
         cell.setPostData(postArray[indexPath.row])
         
+        //セル内のimageViewにgesture設定
+        let tapGesture = UITapGestureRecognizer(target: self, action: Selector(("tapPost")))
+        cell.postImageView.addGestureRecognizer(tapGesture)
+        cell.postImageView.isUserInteractionEnabled = true
+        
         // セル内のlikeボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
         // セル内のcommentボタンのアクションをソースコードで設定する
         cell.commentButton.addTarget(self, action:#selector(commentHandleButton(_:forEvent:)), for: .touchUpInside)
         
- 
+        
         return cell
     }
     
-
+        func tapPost (gestureRecognizer: UITapGestureRecognizer, forEvent event: UIEvent) {
+        // タップされたセルのインデックスを求める
+        let tappedLocation = gestureRecognizer.location(in: tableView)
+        let tappedIndexPath = tableView.indexPathForRow(at: tappedLocation)
+        
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[tappedIndexPath!.row]
+        postDataToSend = postData
+        performSegue(withIdentifier: "ShowDemoView", sender: tableView)
+        
+    }
     
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: likeボタンがタップされました。")

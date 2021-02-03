@@ -1,35 +1,33 @@
 //
-//  imageTableViewCell.swift
+//  descriptionTableViewCell.swift
 //  Skateboarding
 //
-//  Created by 鈴木正義 on 2021/01/29.
+//  Created by 鈴木正義 on 2021/02/03.
 //  Copyright © 2021 masayoshi.suzuki. All rights reserved.
 //
 
 import UIKit
-import FirebaseUI
 
-class imageTableViewCell: UITableViewCell {
+class descriptionTableViewCell: UITableViewCell {
+    @IBOutlet weak var descriptionLabel: UILabel!
+
     
-    
-    @IBOutlet weak var ImageViewDetail: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        descriptionLabel.adjustsFontSizeToFitWidth = true
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
+
         // Configure the view for the selected state
+        
     }
     
     func setPostData(_ postData: PostData) {
-     //画像の表示
-    ImageViewDetail.sd_imageIndicator = SDWebImageActivityIndicator.gray
-    let imageRef = Storage.storage().reference().child(Const.ImagePath).child(postData.id + ".jpg")
-    ImageViewDetail.sd_setImage(with: imageRef)
+       descriptionLabel.text = "\(postData.detail!)"
     }
-
+    
 }

@@ -23,6 +23,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var commentButton: UIButton!
     
+    @IBOutlet weak var markLine: NSLayoutConstraint!
     
     
     override func awakeFromNib() {
