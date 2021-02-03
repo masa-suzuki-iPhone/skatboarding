@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate{
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -80,7 +80,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.setPostData(postArray[indexPath.row])
         
         //セル内のimageViewにgesture設定
-        let tapGesture = UITapGestureRecognizer(target: self, action: Selector(("tapPost")))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.tapped(_:)))
+        tapGesture.delegate = self
         cell.postImageView.addGestureRecognizer(tapGesture)
         cell.postImageView.isUserInteractionEnabled = true
         
@@ -93,16 +94,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-        func tapPost (gestureRecognizer: UITapGestureRecognizer, forEvent event: UIEvent) {
+    @objc func tapped(_ sender: UITapGestureRecognizer) {
         // タップされたセルのインデックスを求める
-        let tappedLocation = gestureRecognizer.location(in: tableView)
+        let tappedLocation = sender.location(in: tableView)
         let tappedIndexPath = tableView.indexPathForRow(at: tappedLocation)
         
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[tappedIndexPath!.row]
         postDataToSend = postData
         performSegue(withIdentifier: "ShowDemoView", sender: tableView)
-        
     }
     
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
