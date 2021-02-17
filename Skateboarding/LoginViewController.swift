@@ -100,7 +100,17 @@ class LoginViewController: UIViewController {
     
         
         // Do any additional setup after loading the view.
+        
+        // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
+               let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
+               self.view.addGestureRecognizer(tapGesture)
+
     }
+    
+    @objc func dismissKeyboard(){
+           // キーボードを閉じる
+           view.endEditing(true)
+       }
     
     
     /*

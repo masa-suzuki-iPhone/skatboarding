@@ -41,6 +41,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Taj-40-cef" firstAttribute="top" secondItem="Tk5-HB-Nwn" secondAttribute="bottom" constant="10" id="2fJ-Lw-ZeP"/>
+                    <constraint firstItem="Tk5-HB-Nwn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="F06-D1-WgW"/>
                     <constraint firstAttribute="trailing" secondItem="Taj-40-cef" secondAttribute="trailing" constant="35" id="Jqq-vw-m6d"/>
                     <constraint firstItem="Tk5-HB-Nwn" firstAttribute="centerY" secondItem="72V-dU-yBM" secondAttribute="centerY" id="MIi-j4-CzC"/>
                     <constraint firstItem="Taj-40-cef" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="NiI-y2-Juj"/>

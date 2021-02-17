@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXa-rB-ms0">
-                        <rect key="frame" x="183" y="0.0" width="42" height="25"/>
+                        <rect key="frame" x="183" y="5" width="42" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="k15-3e-YH7"/>
                         </constraints>
@@ -33,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|||" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDS-dD-1zL">
-                        <rect key="frame" x="152" y="0.0" width="16" height="25"/>
+                        <rect key="frame" x="152" y="5" width="16" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="Hok-2s-qiN"/>
                         </constraints>
@@ -42,14 +42,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rainy" translatesAutoresizingMaskIntoConstraints="NO" id="Z6t-hO-tEn">
-                        <rect key="frame" x="26" y="0.0" width="25" height="25"/>
+                        <rect key="frame" x="26" y="5" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="bUd-CC-RgX"/>
                             <constraint firstAttribute="width" constant="25" id="oZE-Da-Htx"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="雨スポット " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pxy-OV-rRH">
-                        <rect key="frame" x="56" y="0.0" width="91.5" height="25"/>
+                        <rect key="frame" x="56" y="5" width="91.5" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="Z8R-LK-Yd8"/>
                         </constraints>
@@ -59,11 +59,11 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="hDS-dD-1zL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2xe-FW-fpd"/>
+                    <constraint firstItem="hDS-dD-1zL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="2xe-FW-fpd"/>
                     <constraint firstItem="hDS-dD-1zL" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="F5r-10-PqT"/>
                     <constraint firstItem="SXa-rB-ms0" firstAttribute="leading" secondItem="hDS-dD-1zL" secondAttribute="trailing" constant="15" id="Fer-Xr-Zjf"/>
                     <constraint firstItem="Pxy-OV-rRH" firstAttribute="leading" secondItem="Z6t-hO-tEn" secondAttribute="trailing" constant="5" id="eW7-s9-QKT"/>
-                    <constraint firstAttribute="bottom" secondItem="hDS-dD-1zL" secondAttribute="bottom" id="hvd-Bp-Zoo"/>
+                    <constraint firstAttribute="bottom" secondItem="hDS-dD-1zL" secondAttribute="bottom" constant="5" id="hvd-Bp-Zoo"/>
                     <constraint firstItem="hDS-dD-1zL" firstAttribute="centerY" secondItem="Z6t-hO-tEn" secondAttribute="centerY" id="kB3-iP-zNG"/>
                     <constraint firstItem="hDS-dD-1zL" firstAttribute="centerY" secondItem="Pxy-OV-rRH" secondAttribute="centerY" id="t7Z-cl-a90"/>
                     <constraint firstItem="SXa-rB-ms0" firstAttribute="centerY" secondItem="hDS-dD-1zL" secondAttribute="centerY" id="vWB-Ps-2ye"/>

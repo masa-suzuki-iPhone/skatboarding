@@ -28,6 +28,11 @@ class DemoCommentViewController: UIViewController, UITableViewDataSource, UITabl
         
         //空の線のセルの区切りを消す
         detailTableView.tableFooterView = UIView()
+        // tabbarを隠す
+        tabBarController?.tabBar.isHidden = true
+        
+        title = "詳細"
+        self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         detailTableView.delegate = self
         detailTableView.dataSource = self
@@ -54,22 +59,25 @@ class DemoCommentViewController: UIViewController, UITableViewDataSource, UITabl
         let nib7 = UINib(nibName: "descriptionTableViewCell", bundle: nil)
         detailTableView.register(nib7, forCellReuseIdentifier: "descriptionCell")
         
-        detailTableView.reloadData()
+        let nib8 = UINib(nibName: "CommentLabelTableViewCell", bundle: nil)
+        detailTableView.register(nib8, forCellReuseIdentifier: "CommentLabelCell")
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        let nib9 = UINib(nibName: "commentTableViewCell", bundle: nil)
+        detailTableView.register(nib9, forCellReuseIdentifier: "commentCell")
+        
+        detailTableView.reloadData()
         
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return postDataReceived.comments.count + 8
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
         
         switch indexPath.row {
         case 0:
@@ -124,11 +132,17 @@ class DemoCommentViewController: UIViewController, UITableViewDataSource, UITabl
                 return cell
             }
             return cell
-        default : break
-            
+        case 7:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CommentLabelCell", for: indexPath)
+            return cell
+        default :
+            let cell = detailTableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentTableViewCell
+            cell.setPostData(postDataReceived)
+            cell.someonesCommentLabel.text = postDataReceived.comments[indexPath.row - 8]
+          return cell
         }
-        
-        
-        return UITableViewCell()
+
+       
     }
+    
 }

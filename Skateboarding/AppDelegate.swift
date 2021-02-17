@@ -8,16 +8,21 @@
 
 import UIKit
 import Firebase
+import GoogleMaps
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // SVProgressHUDをXcode11で実行するための環境調整コード
-    var window: UIWindow?  
+    var window: UIWindow?
+    let cGoogleMapsAPIKey = "AIzaSyCm61R-d6t3dsQeDUSAsvZuJLuhb0goIEs"
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        GMSServices.provideAPIKey(cGoogleMapsAPIKey)
         return true
     }
 

@@ -12,6 +12,8 @@ import FirebaseUI
 
 class PostTableViewCell: UITableViewCell {
     
+ 
+
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
@@ -23,7 +25,6 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var commentButton: UIButton!
     
-    @IBOutlet weak var markLine: NSLayoutConstraint!
     
     
     override func awakeFromNib() {

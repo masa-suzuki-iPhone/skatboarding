@@ -23,6 +23,11 @@
                             <constraint firstAttribute="width" constant="250" id="mko-ID-D2h"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpF-no-32h">
+                        <rect key="frame" x="68" y="277" width="46" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Button"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="LRK-1d-AFy" secondAttribute="trailing" id="8eS-fr-Vx8"/>

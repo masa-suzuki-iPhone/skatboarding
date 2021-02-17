@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,9 +19,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // Firestoreのリスナー
     var listener: ListenerRegistration!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "スポット"
+        title = "スポット一覧"
         self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationController!.navigationBar.barTintColor = UIColor(red: 0, green: 0.4745, blue: 0.6784, alpha: 1)
         
@@ -37,6 +39,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("DEBUG_PRINT: viewWillAppear")
+        
+        //tabbarを復活
+        tabBarController?.tabBar.isHidden = false
         
         if Auth.auth().currentUser != nil {
             // ログイン済み
@@ -68,6 +73,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 tableView.reloadData()
             }
         }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,7 +86,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.setPostData(postArray[indexPath.row])
         
         //セル内のimageViewにgesture設定
-        let tapGesture = UITapGestureRecognizer(target: self, action: Selector(("tapPost")))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewController.tapped(_:)))
+        tapGesture.delegate = self
         cell.postImageView.addGestureRecognizer(tapGesture)
         cell.postImageView.isUserInteractionEnabled = true
         
@@ -93,9 +100,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-        func tapPost (gestureRecognizer: UITapGestureRecognizer, forEvent event: UIEvent) {
+    @objc func tapped(_ sender: UITapGestureRecognizer) {
         // タップされたセルのインデックスを求める
-        let tappedLocation = gestureRecognizer.location(in: tableView)
+        let tappedLocation = sender.location(in: tableView)
         let tappedIndexPath = tableView.indexPathForRow(at: tappedLocation)
         
         // 配列からタップされたインデックスのデータを取り出す
@@ -144,7 +151,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
         postDataToSend = postData
-        performSegue(withIdentifier: "ShowDemoView", sender: tableView)
+        performSegue(withIdentifier: "ShowPostCommentView", sender: tableView)
     }
     
     var postDataToSend: PostData?
@@ -154,18 +161,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let indexPath = segue.destination as! DemoCommentViewController
             if let postData = postDataToSend {
                 indexPath.setPostData(postData)
+                
             }
+        } else if segue.identifier == "ShowPostCommentView"{
+            let indexPath = segue.destination as! PostCommentViewController
+            if let postData = postDataToSend {
+                indexPath.setPostData(postData)
+                
+            }
+            
+            
         }
-        
-        /*
-         // MARK: - Navigation
-         
-         // In a storyboard-based application, you will often want to do a little preparation before navigation
-         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-         }
-         */
-        
     }
+    
 }

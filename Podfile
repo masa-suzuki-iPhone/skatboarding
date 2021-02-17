@@ -14,4 +14,14 @@ target 'Skateboarding' do
   pod 'FirebaseUI/Storage'
   pod 'SVProgressHUD','2.2.5'
   pod 'CLImageEditor/AllTools','0.2.4'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+    end
+  end
+end
 end

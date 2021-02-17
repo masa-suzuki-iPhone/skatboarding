@@ -13,9 +13,17 @@ import SVProgressHUD
 class PostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     var image: UIImage!
+    var addressString = ""
+    
+    var category = ""
+    var roadsurface = ""
+    var kickout = ""
+    var rainy = ""
+    var detail = ""
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textField: UITextField!
+    
     
     @IBOutlet weak var textSpotCategoryField: UITextField!
     var pickerView: UIPickerView = UIPickerView()
@@ -49,15 +57,12 @@ class PostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         if let caption = textField.text, let category = textSpotCategoryField.text , let roadSurface = textRoadSurfaceField.text, let kickout = textKickoutLevelField.text, let rainy = textRainySpotField.text, let detail = textDetailView.text {
             
             if caption.isEmpty || category.isEmpty || roadSurface.isEmpty || kickout.isEmpty || rainy.isEmpty || detail.isEmpty {
-            
                 return
-          
             }
-            
         }
         
         // 画像をJPEG形式に変換する
-        let imageData = image.jpegData(compressionQuality: 0.75)
+        let imageData = image.jpegData(compressionQuality: 0.5)
         // 画像と投稿データの保存場所を定義する
         let postRef = Firestore.firestore().collection(Const.PostPath).document()
         let imageRef = Storage.storage().reference().child(Const.ImagePath).child(postRef.documentID + ".jpg")
@@ -87,7 +92,7 @@ class PostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             "rainy": self.textRainySpotField.text!,
             "detail": self.textDetailView.text!,
             "date": FieldValue.serverTimestamp(),
-            ] as [String : Any]
+        ] as [String : Any]
         postRef.setData(postDic)
         // HUDで投稿完了を表示する
         SVProgressHUD.showSuccess(withStatus: "投稿しました")
@@ -95,22 +100,27 @@ class PostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
-
     
-    // キャンセルボタンをタップしたときに呼ばれるメソッド
-    @IBAction func handleCancelButton(_ sender: Any) {
-        // 加工画面に戻る
-        self.dismiss(animated: true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-          
+        
+        title = "スポット一覧"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0, green: 0.4745, blue: 0.6784, alpha: 1)
+        
         // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
-               let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
-               self.view.addGestureRecognizer(tapGesture)
-
- 
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
+        //textViewに枠をつける
+        // 枠のカラー
+        textDetailView.layer.borderColor = UIColor.lightGray.cgColor
+        // 枠の幅
+        textDetailView.layer.borderWidth = 1.0
+        // 枠を角丸にする
+        textDetailView.layer.cornerRadius = 5.0
+        textDetailView.layer.masksToBounds = true
+        
         // MARK:pickerWithButtonView
         // Delegateを自身に設定する
         pickerView.delegate = self //（スポットの種類）
@@ -230,12 +240,35 @@ class PostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         // Do any additional setup after loading the view.
         // 受け取った画像をImageViewに設定する
         imageView.image = image
+        textField.text = addressString
+        textSpotCategoryField.text = category
+        textRoadSurfaceField.text = roadsurface
+        textKickoutLevelField.text = kickout
+        textRainySpotField.text = rainy
+        textDetailView.text = detail
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textField.text = addressString
+        textSpotCategoryField.text = category
+        textRoadSurfaceField.text = roadsurface
+        textKickoutLevelField.text = kickout
+        textRainySpotField.text = rainy
+        textDetailView.text = detail
+        
+    }
+    
+    @IBAction func handleCancelButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     @objc func dismissKeyboard(){
-           // キーボードを閉じる
-           view.endEditing(true)
-       }
+        // キーボードを閉じる
+        view.endEditing(true)
+    }
     
     func pickerView (_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if (pickerView.tag == 1){
@@ -291,17 +324,24 @@ class PostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "moveLocation" {
+        let pickLocationViewConrtorller:PickLocationViewController = segue.destination as! PickLocationViewController
+        pickLocationViewConrtorller.image = image
+        pickLocationViewConrtorller.addressString = addressString
+        pickLocationViewConrtorller.category = textSpotCategoryField.text ?? ""
+        pickLocationViewConrtorller.roadsurface = textRoadSurfaceField.text ?? ""
+        pickLocationViewConrtorller.kickout = textKickoutLevelField.text ?? ""
+        pickLocationViewConrtorller.rainy = textRainySpotField.text ?? ""
+        pickLocationViewConrtorller.detail = textDetailView.text ?? ""
+        }
+        
+    }
     
 }
+
+
+
+
+
+
