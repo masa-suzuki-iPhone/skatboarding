@@ -162,9 +162,7 @@ class PickLocationViewController: UIViewController, CLLocationManagerDelegate, U
             postViewConrtorller.kickout = kickout
             postViewConrtorller.rainy = rainy
             postViewConrtorller.detail = detail
-        
-        
-        
+     
     }
     
     

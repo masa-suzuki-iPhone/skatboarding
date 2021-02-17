@@ -45,6 +45,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         self.view = gmaps
         gmaps.delegate = self
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("DEBUG_PRINT: viewWillAppear")
+        
         if Auth.auth().currentUser != nil {
             // ログイン済み
             if listener == nil {
@@ -59,11 +65,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                     self.postArray = querySnapshot!.documents.map { document in
                         print("DEBUG_PRINT: document取得 \(document.documentID)")
                         let postData = PostData(document: document)
-                        self.postArray.insert(postData, at: 0)
                         self.makeMarker(postData: postData)
                         return postData
                     }
-                   
+
                 }
             }
         } else {
@@ -73,18 +78,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 listener.remove()
                 listener = nil
                 postArray = []
+
             }
         }
-        
     }
     
     func makeMarker(postData: PostData) -> [GMSMarker] {
         
         let marker = GMSMarker()
-        let latitude = Double(postData.latitude!)
-        let longitude = Double(postData.longitude!)
         
-        marker.position = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+        marker.position = CLLocationCoordinate2D(latitude: postData.latitude!, longitude: postData.longitude!)
         
         marker.title = "\(postData.caption!)"
         marker.tracksInfoWindowChanges = true //情報ウィンドウを自動的に更新するように設定する

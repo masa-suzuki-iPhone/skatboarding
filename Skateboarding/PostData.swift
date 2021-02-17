@@ -14,6 +14,10 @@ class PostData: NSObject {
     var id: String
     var name: String?
     var caption: String?
+    
+    var latitude: Double?
+     var longitude: Double?
+    
     var roadsurface: String?
     var kickout: String?
     var rainy: String?
@@ -33,6 +37,9 @@ class PostData: NSObject {
         self.name = postDic["name"] as? String
 
         self.caption = postDic["caption"] as? String
+        
+        self.latitude = postDic["latitude"] as? Double
+        self.longitude = postDic["longitude"] as? Double
 
         self.category = postDic["category"] as? String
 
