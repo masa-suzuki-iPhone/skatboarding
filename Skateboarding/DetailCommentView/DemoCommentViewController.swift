@@ -31,9 +31,11 @@ class DemoCommentViewController: UIViewController, UITableViewDataSource, UITabl
         // tabbarを隠す
         tabBarController?.tabBar.isHidden = true
         
-        title = "詳細"
-        self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
+        title = "詳細"
+        if let navigation = self.navigationController {
+        navigation.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        }
         detailTableView.delegate = self
         detailTableView.dataSource = self
         
@@ -76,9 +78,7 @@ class DemoCommentViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
-        
+
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "imageCell", for: indexPath)

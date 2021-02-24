@@ -16,7 +16,7 @@ class PostData: NSObject {
     var caption: String?
     
     var latitude: Double?
-     var longitude: Double?
+    var longitude: Double?
     
     var roadsurface: String?
     var kickout: String?

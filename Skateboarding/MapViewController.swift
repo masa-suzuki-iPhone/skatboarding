@@ -17,11 +17,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var longitude: CLLocationDegrees! = CLLocationDegrees()
     var gmaps: GMSMapView!
     var markers: [GMSMarker] = []
+    var nameStringArray = [String] ()
+    var indexNumber = Int()
     
     // 投稿データを格納する配列
-    var postArray: [PostData] = []
+    var postArray: [PostData]  = []
     // Firestoreのリスナー
     var listener: ListenerRegistration!
+    
     
     
     override func viewDidLoad() {
@@ -49,7 +52,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("DEBUG_PRINT: viewWillAppear")
+        print("DEBUG_PRINT: mapviewWillAppear")
+        
+        mapManager.startUpdatingLocation()
         
         if Auth.auth().currentUser != nil {
             // ログイン済み
@@ -65,10 +70,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                     self.postArray = querySnapshot!.documents.map { document in
                         print("DEBUG_PRINT: document取得 \(document.documentID)")
                         let postData = PostData(document: document)
+                       
                         self.makeMarker(postData: postData)
                         return postData
                     }
-
+                    
                 }
             }
         } else {
@@ -78,9 +84,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 listener.remove()
                 listener = nil
                 postArray = []
-
+                
             }
         }
+        
+      
     }
     
     func makeMarker(postData: PostData) -> [GMSMarker] {
@@ -90,6 +98,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         marker.position = CLLocationCoordinate2D(latitude: postData.latitude!, longitude: postData.longitude!)
         
         marker.title = "\(postData.caption!)"
+        marker.snippet = "\(postData.id)"
+        
+        if nameStringArray.contains(postData.id) == false {
+            nameStringArray.append(postData.id)
+        }
+        
+        
         marker.tracksInfoWindowChanges = true //情報ウィンドウを自動的に更新するように設定する
         marker.appearAnimation = GMSMarkerAnimation.pop //マーカーの表示にアニメーションをつける
         gmaps.selectedMarker = marker //デフォルトで情報ウィンドウを表示
@@ -97,7 +112,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         markers = [marker]
         
+        print(nameStringArray)
+        
         return markers
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker ) -> Bool {
+        print("You tapped : \(marker.position.latitude),\(marker.position.longitude)")
+        
+        if nameStringArray.firstIndex(of: marker.snippet! ) != nil {
+            indexNumber = nameStringArray.firstIndex(of: marker.snippet! )!
+            
+        }
+        postDataToSend = postArray[indexNumber]
+        performSegue(withIdentifier: "moveToDetail", sender: self)
+     
+        
+        
+        
+        
+        return true // or false as needed.
     }
     
     //現在地の読み込み完了時に呼ばれるメソッド
@@ -108,6 +142,21 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         let now :GMSCameraPosition = GMSCameraPosition.camera(withLatitude: latitude,longitude:longitude,zoom:14)
         gmaps.camera = now
     }
+    
+    var postDataToSend: PostData?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "moveToDetail" {
+            let next = segue.destination as! DemoCommentViewController
+            if let postData = postDataToSend {
+                next.setPostData(postData)
+                
+            }
+            
+            
+        }
+    }
+    
     
     
     /*

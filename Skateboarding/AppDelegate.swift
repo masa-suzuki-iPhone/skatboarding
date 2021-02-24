@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // SVProgressHUDをXcode11で実行するための環境調整コード
     var window: UIWindow?
-    let cGoogleMapsAPIKey = "AIzaSyCm61R-d6t3dsQeDUSAsvZuJLuhb0goIEs"
+    let cGoogleMapsAPIKey = "AIzaSyDmEUq_XidT_Dq68ZZf-D55rCDsEdO4iKY"
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
