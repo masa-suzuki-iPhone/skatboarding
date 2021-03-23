@@ -1,3 +1,3 @@
 # skatboarding
-![skateSpot](https://user-images.githubusercontent.com/71866173/112086195-20388c00-8bcf-11eb-85cc-638ddccb6a04.png)
+<img src="https://user-images.githubusercontent.com/71866173/112087903-30059f80-8bd2-11eb-86c4-577a2b3f9b43.png" width="123" height=456px >
 <h2 align="center">Skate Spot</h2>
