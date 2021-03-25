@@ -2,7 +2,7 @@
 
 <h1>
 <img src="https://user-images.githubusercontent.com/71866173/112087903-30059f80-8bd2-11eb-86c4-577a2b3f9b43.png" width="300px" height="300px" align="middle"> 
-　　　**SkateSpot**
+　　　🛹 SkateSpot 🛹
 </h1>
 
 
