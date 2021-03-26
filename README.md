@@ -18,7 +18,7 @@
 
 |④コメント機能|⑤マップ機能|⑥投稿機能|
 |:---|:---|:---|
-|pp|<img src="https://user-images.githubusercontent.com/71866173/112500622-e54f7780-8dcb-11eb-82d8-b8da52fa1d21.png" width="250px" height="550px">| -- |
+|<img src="https://user-images.githubusercontent.com/71866173/112697550-24182700-8ecb-11eb-90ee-fd9679e24d4b.png" width="250px" height="550px">|<img src="https://user-images.githubusercontent.com/71866173/112500622-e54f7780-8dcb-11eb-82d8-b8da52fa1d21.png" width="250px" height="550px">| -- |
 
 
 
