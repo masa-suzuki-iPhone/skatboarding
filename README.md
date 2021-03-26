@@ -15,10 +15,13 @@
 |①スポット一覧|②スポット詳細|③いいね機能|
 |:---|:---|:---|
 |<img src="https://user-images.githubusercontent.com/71866173/112494846-b71b6900-8dc6-11eb-96c5-ef10750244f7.png" width="250px" height="550px">|<img src="https://user-images.githubusercontent.com/71866173/112497219-c13e6700-8dc8-11eb-82e4-ad86b5b3ca45.png" width="250px" height="550px">|<img src="https://user-images.githubusercontent.com/71866173/112697847-cb955980-8ecb-11eb-996c-63f6f8b6cd71.png" width="250px" height="250px">|
+|全国のスケーターが投稿した<br>スポットの一覧を見ることができる!@|投稿をタップすると<br>スポットの詳細な情報を閲覧する事ができる!!|投稿にいいねすることができる!!|
+
 
 |④コメント機能|⑤マップ機能|⑥投稿機能|
 |:---|:---|:---|
-|<img src="https://user-images.githubusercontent.com/71866173/112697550-24182700-8ecb-11eb-90ee-fd9679e24d4b.png" width="250px" height="550px">|<img src="https://user-images.githubusercontent.com/71866173/112500622-e54f7780-8dcb-11eb-82d8-b8da52fa1d21.png" width="250px" height="550px">| -- |
+|<img src="https://user-images.githubusercontent.com/71866173/112697550-24182700-8ecb-11eb-90ee-fd9679e24d4b.png" width="250px" height="550px">|<img src="https://user-images.githubusercontent.com/71866173/112500622-e54f7780-8dcb-11eb-82d8-b8da52fa1d21.png" width="250px" height="550px">|<img src="https://user-images.githubusercontent.com/71866173/112698121-5bd39e80-8ecc-11eb-9922-e6f1c99c08d2.png" width="250px" height="550px">|
+|Spotに対して感想などを投稿できる!!|現在地付近からスポットを探す事できる!!|あらかじめ用意されたフォームから<br>スポットを気軽にシェアできる!!|
 
 
 
