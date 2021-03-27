@@ -40,5 +40,6 @@
 |<img src="https://user-images.githubusercontent.com/71866173/112707416-9f3f0480-8eee-11eb-9589-3b5037b49ebb.jpg"  width="250px" heght="100px">|<img src="https://user-images.githubusercontent.com/71866173/112088986-21b88300-8bd4-11eb-8fec-2f7732ca7b5f.png"  width="250px" heght="100px">|<img src="https://user-images.githubusercontent.com/71866173/112707603-f98c9500-8eef-11eb-8e7d-045ad8eca52a.png" width="250px" heght="100px"> |
 <br>
 
+# :low_brightness:技術選定理由
 
 <h2 align="center">Skate Spot</h2>
