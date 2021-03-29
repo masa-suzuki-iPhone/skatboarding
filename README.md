@@ -55,7 +55,14 @@
  
  
  <div align="center"><img src="https://user-images.githubusercontent.com/71866173/112707603-f98c9500-8eef-11eb-8e7d-045ad8eca52a.png" width=device-width heght="100px"></div>
- 
+<p>私はアプリ内でマップを表示しようと考え、MapKitではなく、Google Maps SDK for iOSを使用することに決めました。理由としては、「情報量」「iPhoneとAndroid の共通レイアウト」の2点があります。</p>
+
+#### ①情報量
+<p>マップを使用する理由は、スポットの位置情報を表示するためです。ユーザーは、今まで知らなかったスポットの住所を、マップを見て探します。そのようなユーザーの視点に立つと、地図に表示される店や地名などの情報が多い方が目的地を探しやすいのではないかと考え、情報量の多いGoogle Mapを使用することに決めました。</p>
+
+#### ②iPhoneとAndroid の共通レイアウト
+<p>「SkateSpot 」は現時点でAppStoreでのみリリースされています。アプリをより多くのユーザーに利用してもらうため、今後、Google Play ストアでのリリースも考えています。そのため、iPhone上でもAndroid上でもマップの見え方が統か一されるように Google Mapを使用することにしました。</p>
+
 
 
 <h2 align="center">Skate Spot</h2>
