@@ -54,8 +54,7 @@
  <p>アプリを長期間、より多くの人に利用してもらうためには、ユーザーのニーズを正しく把握するべきと考え、多角的かつ詳細な分析に優れた「Google Analytics for Firebase」という機能を利用する事のできるFirebase を選びました。</p><br>
  
  
- <div align="center"><img src="https://user-images.githubusercontent.com/71866173/112829346-f5b56a00-90cb-11eb-83ed-2ae1ce37ab30.png
-" width=device-width heght="100px"></div>
+ <div align="center"><img src="https://user-images.githubusercontent.com/71866173/112707603-f98c9500-8eef-11eb-8e7d-045ad8eca52a.png" width=device-width heght="100px"></div>
  
 
 
