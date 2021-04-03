@@ -32,7 +32,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         super.viewDidLoad()
         title = "マップ"
         self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 0/255, green: 69/255, blue: 130/255, alpha: 1)
+        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 1/255, green: 69/255, blue: 130/255, alpha: 1)
  
         mapManager.delegate = self
         mapManager.requestWhenInUseAuthorization()
