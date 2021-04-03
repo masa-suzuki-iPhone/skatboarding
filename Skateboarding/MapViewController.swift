@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import Firebase
+import FirebaseFirestore
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
@@ -31,8 +32,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         super.viewDidLoad()
         title = "マップ"
         self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        self.navigationController!.navigationBar.barTintColor = UIColor(red: 0, green: 0.4745, blue: 0.6784, alpha: 1)
-        
+        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 0/255, green: 69/255, blue: 130/255, alpha: 1)
+ 
         mapManager.delegate = self
         mapManager.requestWhenInUseAuthorization()
         mapManager.requestAlwaysAuthorization()
@@ -120,17 +121,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker ) -> Bool {
         print("You tapped : \(marker.position.latitude),\(marker.position.longitude)")
         
-        if nameStringArray.firstIndex(of: marker.snippet! ) != nil {
-            indexNumber = nameStringArray.firstIndex(of: marker.snippet! )!
-            
+
+        for post in postArray {
+            if post.id == marker.snippet {
+                postDataToSend = post
+                break
+            }
         }
-        postDataToSend = postArray[indexNumber]
+
         performSegue(withIdentifier: "moveToDetail", sender: self)
-     
-        
-        
-        
-        
+      
         return true // or false as needed.
     }
     

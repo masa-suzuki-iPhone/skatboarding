@@ -16,7 +16,60 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBOutlet weak var handleLoginButton2: UIButton!
-    @IBOutlet weak var handleCreateAccountButton2: UIButton!
+    @IBOutlet weak var accountButton: UIButton!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //グラデーションの開始色
+        let topColor = UIColor(red: 0/255, green: 69/255, blue: 130/255, alpha: 1)
+        //グラデーションの開始色
+        let bottomColor = UIColor(red:0.54, green:0.74, blue:0.74, alpha:1)
+        
+        //グラデーションの色を配列で管理
+        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        
+        //グラデーションレイヤーを作成
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        
+        //グラデーションの色をレイヤーに割り当てる
+        gradientLayer.colors = gradientColors
+        //グラデーションレイヤーをスクリーンサイズにする
+        gradientLayer.frame = self.view.bounds
+        
+        //グラデーションレイヤーをビューの一番下に配置
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        handleLoginButton2.layer.cornerRadius = 10.0
+        accountButton.layer.cornerRadius = 10.0
+        
+        // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tapGesture)
+        
+        
+        // ツールバー生成 サイズはsizeToFitメソッドで自動で調整される。
+            let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+
+            //サイズの自動調整。敢えて手動で実装したい場合はCGRectに記述してsizeToFitは呼び出さない。
+            toolBar.sizeToFit()
+
+            // 左側のBarButtonItemはflexibleSpace。これがないと右に寄らない。
+            let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+            // Doneボタン
+            let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(dismissKeyboard))
+
+            // BarButtonItemの配置
+            toolBar.items = [spacer, commitButton]
+            // textViewのキーボードにツールバーを設定
+        mailAddressTextField.inputAccessoryView = toolBar
+        passwordTextField.inputAccessoryView = toolBar
+        displayNameTextField.inputAccessoryView = toolBar
+
+        
+        
+    }
     
     // ログインボタンをタップしたときに呼ばれるメソッド
     @IBAction func handleLoginButton(_ sender: Any) {
@@ -46,8 +99,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    // アカウント作成ボタンをタップしたときに呼ばれるメソッド
-    @IBAction func handleCreateAccountButton(_ sender: Any) {
+    @IBAction func handleAccountButton(_ sender: Any) {
         if let address = mailAddressTextField.text, let password = passwordTextField.text, let displayName = displayNameTextField.text {
             
             // アドレスとパスワードと表示名のいずれかでも入力されていない時は何もしない
@@ -93,35 +145,11 @@ class LoginViewController: UIViewController {
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        handleLoginButton2.layer.cornerRadius = 10.0
-        handleCreateAccountButton2.layer.cornerRadius = 10.0
-    
-        
-        // Do any additional setup after loading the view.
-        
-        // 背景をタップしたらdismissKeyboardメソッドを呼ぶように設定する
-               let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(dismissKeyboard))
-               self.view.addGestureRecognizer(tapGesture)
-
+    @objc func dismissKeyboard(){
+        // キーボードを閉じる
+        view.endEditing(true)
     }
     
-    @objc func dismissKeyboard(){
-           // キーボードを閉じる
-           view.endEditing(true)
-       }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
 

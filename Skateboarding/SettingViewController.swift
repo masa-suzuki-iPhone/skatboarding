@@ -13,6 +13,26 @@ import SVProgressHUD
 class SettingViewController: UIViewController {
     
     @IBOutlet weak var displayNameTextField: UITextField!
+    @IBOutlet weak var changeButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        changeButton.layer.cornerRadius = 10.0
+        logoutButton.layer.cornerRadius = 10.0
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // 表示名を取得してTextFieldに設定する
+        let user = Auth.auth().currentUser
+        if let user = user {
+            displayNameTextField.text = user.displayName
+        }
+    }
     
     @IBAction func handleChangeButoon(_ sender: Any) {
         if let displayName = displayNameTextField.text {
@@ -53,32 +73,6 @@ class SettingViewController: UIViewController {
         // ログイン画面から戻ってきた時のためにホーム画面（index = 0）を選択している状態にしておく
         tabBarController?.selectedIndex = 0
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // 表示名を取得してTextFieldに設定する
-        let user = Auth.auth().currentUser
-        if let user = user {
-            displayNameTextField.text = user.displayName
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
     
 }

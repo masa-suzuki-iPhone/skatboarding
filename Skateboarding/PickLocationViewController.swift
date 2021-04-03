@@ -42,6 +42,7 @@ class PickLocationViewController: UIViewController, CLLocationManagerDelegate, U
         locationManager.delegate = self
         locationManager!.requestWhenInUseAuthorization()
         
+        addressLabel.layer.cornerRadius = 10.0
         addressLabel.layer.borderWidth = 1.0
         addressLabel.text = addressString
         
@@ -154,14 +155,14 @@ class PickLocationViewController: UIViewController, CLLocationManagerDelegate, U
     @IBAction func settingButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
        
-        let postViewConrtorller = self.presentingViewController as! PostViewController
-            postViewConrtorller.image = image
-            postViewConrtorller.addressString = self.addressString
-            postViewConrtorller.category = category
-            postViewConrtorller.roadsurface = roadsurface
-            postViewConrtorller.kickout = kickout
-            postViewConrtorller.rainy = rainy
-            postViewConrtorller.detail = detail
+        let postInformatinViewController = self.presentingViewController as! PostInformatinViewController
+        postInformatinViewController.image = image
+        postInformatinViewController.addressString = self.addressString
+        postInformatinViewController.category = category
+        postInformatinViewController.roadsurface = roadsurface
+        postInformatinViewController.kickout = kickout
+        postInformatinViewController.rainy = rainy
+        postInformatinViewController.detail = detail
      
     }
     
@@ -169,14 +170,14 @@ class PickLocationViewController: UIViewController, CLLocationManagerDelegate, U
     @IBAction func cancelButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
        
-        let postViewConrtorller = self.presentingViewController as! PostViewController
-            postViewConrtorller.image = image
-            postViewConrtorller.addressString = ""
-            postViewConrtorller.category = category
-            postViewConrtorller.roadsurface = roadsurface
-            postViewConrtorller.kickout = kickout
-            postViewConrtorller.rainy = rainy
-            postViewConrtorller.detail = detail
+        let postInformatinViewController = self.presentingViewController as! PostInformatinViewController
+        postInformatinViewController.image = image
+        postInformatinViewController.addressString = ""
+        postInformatinViewController.category = category
+        postInformatinViewController.roadsurface = roadsurface
+        postInformatinViewController.kickout = kickout
+        postInformatinViewController.rainy = rainy
+        postInformatinViewController.detail = detail
         
     }
     

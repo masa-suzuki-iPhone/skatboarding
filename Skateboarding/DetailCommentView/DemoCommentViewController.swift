@@ -30,8 +30,7 @@ class DemoCommentViewController: UIViewController, UITableViewDataSource, UITabl
         detailTableView.tableFooterView = UIView()
         // tabbarを隠す
         tabBarController?.tabBar.isHidden = true
-        
-        
+ 
         title = "詳細"
         if let navigation = self.navigationController {
         navigation.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]

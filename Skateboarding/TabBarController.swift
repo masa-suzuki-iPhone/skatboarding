@@ -14,9 +14,9 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // タブアイコンの色
-        self.tabBar.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        self.tabBar.tintColor = UIColor.init(red: 0/255, green: 69/255, blue: 130/255, alpha: 1)
         // タブバーの背景色
-        self.tabBar.barTintColor = UIColor(red: 0, green: 0.4745, blue: 0.6784, alpha: 1)
+        self.tabBar.barTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         // UITabBarControllerDelegateプロトコルのメソッドをこのクラスで処理する。
         self.delegate = self
     }
@@ -50,14 +50,5 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 
 
 
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
 
 }

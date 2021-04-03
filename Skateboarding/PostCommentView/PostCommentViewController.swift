@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 import SVProgressHUD
 
 class PostCommentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -18,8 +19,8 @@ class PostCommentViewController: UIViewController, UITableViewDataSource, UITabl
     func setPostData(_ postData: PostData) {
         postDataReceived = postData
     }
-
- 
+    
+    
     let commentInputContainerView:UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.lightGray
@@ -157,7 +158,7 @@ class PostCommentViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
-        
+            
             let cell = CommentTable.dequeueReusableCell(withIdentifier: "captionCell", for: indexPath)
             if let cell = cell as? captionTableViewCell{
                 cell.setPostData(postDataReceived)
@@ -165,14 +166,14 @@ class PostCommentViewController: UIViewController, UITableViewDataSource, UITabl
             }
             return cell
         } else {
-    
+            
             let cell = CommentTable.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! commentTableViewCell
             cell.setPostData(postDataReceived)
             cell.someonesCommentLabel.text = postDataReceived.comments[indexPath.row - 1]
-
+            
             return cell
         }
-    
+        
     }
     
     

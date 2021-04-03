@@ -16,6 +16,7 @@ target 'Skateboarding' do
   pod 'CLImageEditor/AllTools','0.2.4'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'Eureka'
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|

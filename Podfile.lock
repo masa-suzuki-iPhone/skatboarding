@@ -236,6 +236,7 @@ PODS:
     - CLImageEditor/Core
   - CLImageEditor/TextTool (0.2.4):
     - CLImageEditor/Core
+  - Eureka (5.3.2)
   - Firebase (6.27.0):
     - Firebase/Core (= 6.27.0)
   - Firebase/Analytics (6.27.0):
@@ -373,6 +374,7 @@ PODS:
 
 DEPENDENCIES:
   - CLImageEditor/AllTools (= 0.2.4)
+  - Eureka
   - Firebase (= 6.27.0)
   - Firebase/Analytics
   - Firebase/Auth
@@ -388,6 +390,7 @@ SPEC REPOS:
     - abseil
     - BoringSSL-GRPC
     - CLImageEditor
+    - Eureka
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -415,6 +418,7 @@ SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   CLImageEditor: dc3e5358f641368da3a76fc1c744a4c2ceb270ad
+  Eureka: 1c2b8b5892bfb0e972d0fe05f8c09fd89f8625ec
   Firebase: fc4cbf6f1592636431821ef9a3c557e4dfd9f268
   FirebaseAnalytics: 0ea640473474f036cabbc2576e20c2d63671c92f
   FirebaseAuth: b85c064e0ac60f82486728d50a4803f235687302
@@ -438,6 +442,6 @@ SPEC CHECKSUMS:
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: e64f12eb54b326863ca926e9d87f9ea0a6c2601e
+PODFILE CHECKSUM: 3d7d5a78612815f4c7ce2988aa4edce8c9a6760e
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

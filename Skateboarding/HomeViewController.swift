@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import FirebaseFirestore
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     
@@ -25,7 +25,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         title = "スポット一覧"
         self.navigationController!.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        self.navigationController!.navigationBar.barTintColor = UIColor(red: 0, green: 0.4745, blue: 0.6784, alpha: 1)
+        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 0/255, green: 69/255, blue: 130/255, alpha: 1)
         
         
         tableView.delegate = self
@@ -73,7 +73,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 tableView.reloadData()
             }
         }
-        
+    
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
